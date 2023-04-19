@@ -1,0 +1,13 @@
+name: Entrega Continua
+
+on:
+  workflow_call:
+
+jobs:
+
+  ECS:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Obter arquivo da tarefa 
+      run: aws ecs describe-task-definition --task-definition <nome-da-tarefa-no-ecs> --query taskDefinition > task-definition.json 
+    
